@@ -54,3 +54,33 @@ public class Main {
         else return 0;
     }
 }
+//a better method
+public static int compareVersion(String version1,String version2){
+        if(version1==null||version1.length()==0)return Integer.MIN_VALUE;
+        if(version2==null||version2.length()==0)return Integer.MIN_VALUE;
+
+        while(true){
+            if(version1.length()==0&&version2.length()==0)return 0;
+            if(version1.length()!=0&&version2.length()==0)return 1;
+            if(version1.length()==0&&version2.length()!=0)return -1;
+            int nums1=0;
+            int nums2=0;
+            while(version1.length()!=0&&version1.charAt(0)!='.'){
+                nums1*=10;
+                nums1+=version1.charAt(0)-'0';
+                version1=version1.substring(1);
+            }
+            while(version2.length()!=0&&version2.charAt(0)!='.'){
+                nums2*=10;
+                nums2+=version2.charAt(0)-'0';
+                version2=version2.substring(1);
+            }
+            if(nums1>nums2)return 1;
+            if(nums1<nums2)return -1;
+            if(nums1==nums2){
+                if(version1.length()!=0)version1=version1.substring(1);       //去除'.'
+                if(version2.length()!=0)version2=version2.substring(1);
+                continue;
+            }
+        }
+    }
