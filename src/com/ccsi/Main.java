@@ -55,6 +55,8 @@ public class Main {
     }
 }
 //a better method
+//充分利用charAt(0)和substring(1),并比较string.length()而不是null。
+//用charAt(0)和substring(1)在recursion中计算也非常好用。
 public static int compareVersion(String version1,String version2){
         if(version1==null||version1.length()==0)return Integer.MIN_VALUE;
         if(version2==null||version2.length()==0)return Integer.MIN_VALUE;
